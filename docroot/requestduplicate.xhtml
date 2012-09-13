@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns:aui="http://portletfaces.org/alloyfaces/aui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:chat="http://java.sun.com/jsf/composite/chat"
+	xmlns:liferay-ui="http://portletfaces.org/liferayfaces/liferay-ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core">
+
+	<h:outputText value="A request for study #{resourceRequestBacking.studyName} is already pending."/>  
+	<p />
+	<h:outputText value="Original Request Date:#{resourceRequestBacking.originalRequestDate}">
+		<f:convertDateTime locale="en_US" type="both" />
+	</h:outputText>
+	<p />
+	<h:outputText value="Please click the Send Reminder button if you would like to send the approver a reminder of your request."/>
+	<hr />
+	<ice:commandButton id="duplicategoback" value="Go Back"
+		actionListener="#{resourceRequestBacking.back}" />
+	<ice:commandButton id="sendreminder" disabled="#{resourceRequestBacking.reminderSent}" value="Send Reminder"
+		actionListener="#{resourceRequestBacking.sendReminder}" />
+	<p />
+	<h:outputText value="Thank you.  A reminder E-mail has been sent to the approver for this study." rendered="#{resourceRequestBacking.reminderSent}"/>
+</ui:composition>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="com.jhu.cvrg.portal.resourcerequest.model.ResourceRequest" />
+	<import class="com.jhu.cvrg.portal.resourcerequest.model.Transaction" />
+	<class name="com.jhu.cvrg.portal.resourcerequest.model.impl.ResourceRequestImpl" table="JHU_resource_request_ResourceRequest">
+		<cache usage="read-write" />
+		<id name="requestId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="requesterId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="approverId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="approved" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="declined" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="studyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="message" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="dateSent" type="org.hibernate.type.TimestampType" />
+		<property name="dateHandled" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="com.jhu.cvrg.portal.resourcerequest.model.impl.TransactionImpl" table="JHU_resource_request_Transaction">
+		<cache usage="read-write" />
+		<id name="transactionId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="date" column="date_" type="org.hibernate.type.TimestampType" />
+		<property name="memberId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="action" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="studyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="approverId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="comment" column="comment_" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="ip" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.0.0//EN"
+"http://www.liferay.com/dtd/liferay-service-builder_6_0_0.dtd">
+<service-builder package-path="com.jhu.cvrg.portal.resourcerequest">
+	<author>Chris Jurado</author>
+	<namespace>JHU_resource_request</namespace>
+	<entity name="ResourceRequest" local-service="true" remote-service="false">
+		<column name="requestId" type="long" primary="true" />
+		<column name="requesterId" type="long" />
+		<column name="approverId" type="long" />
+		<column name="approved" type="boolean" />
+		<column name="declined" type="boolean" />
+		<column name="studyId" type="long" />
+		<column name="message" type="String" />
+		<column name="dateSent" type="Date" />
+		<column name="dateHandled" type="String" />
+		<column name="groupId" type="long" />
+		<column name="companyId" type="long" />
+		<order by="asc">
+			<order-column name="dateSent" />
+		</order>
+		<finder name="Study" return-type="Collection">
+			<finder-column name="studyId" />
+		</finder>
+	</entity>
+	
+	<entity name="Transaction" local-service="true" remote-service="false">
+		<column name="transactionId" type="long" primary="true" />
+		<column name="date" type="Date"/>
+		<column name="memberId" type="long"/>
+		<column name="action" type="String" />
+		<column name="studyId" type="long" />
+		<column name="approverId" type="long"/>
+		<column name="comment" type="String" />
+		<column name="ip" type="String" />
+		
+		<finder name="Approver" return-type="Collection">
+			<finder-column name="approverId" />
+		</finder>
+		
+		<finder name="Member" return-type="Collection">
+			<finder-column name="memberId" />
+		</finder>
+
+		<finder name="Study" return-type="Collection">
+			<finder-column name="studyId" />
+		</finder>
+	</entity>
+</service-builder>

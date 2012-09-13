@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<persistence-unit-metadata>
+		<xml-mapping-metadata-complete/>
+		<persistence-unit-defaults>
+			<access>PROPERTY</access>
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	<mapped-superclass class="com.jhu.cvrg.portal.resourcerequest.model.impl.ResourceRequestModelImpl">
+		<attributes>
+			<id name="requestId" />
+			<basic name="requesterId" />
+			<basic name="approverId" />
+			<basic name="approved" />
+			<basic name="declined" />
+			<basic name="studyId" />
+			<basic name="message" />
+			<basic name="dateSent">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="dateHandled" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<transient name="primaryKey" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.jhu.cvrg.portal.resourcerequest.model.impl.TransactionModelImpl">
+		<attributes>
+			<id name="transactionId" />
+			<basic name="date">
+				<column name="DATE_" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="memberId" />
+			<basic name="action" />
+			<basic name="studyId" />
+			<basic name="approverId" />
+			<basic name="comment">
+				<column name="COMMENT_" />
+			</basic>
+			<basic name="ip" />
+			<transient name="primaryKey" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="com.jhu.cvrg.portal.resourcerequest.model.impl.ResourceRequestImpl" name="ResourceRequest">
+		<table name="JHU_resource_request_ResourceRequest" />
+		<attributes />
+	</entity>
+	<entity class="com.jhu.cvrg.portal.resourcerequest.model.impl.TransactionImpl" name="Transaction">
+		<table name="JHU_resource_request_Transaction" />
+		<attributes />
+	</entity>
+</entity-mappings>

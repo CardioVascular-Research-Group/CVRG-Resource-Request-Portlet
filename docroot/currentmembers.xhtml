@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns:aui="http://portletfaces.org/alloyfaces/aui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:chat="http://java.sun.com/jsf/composite/chat"
+	xmlns:liferay-ui="http://portletfaces.org/liferayfaces/liferay-ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core">
+	<h:outputText
+		value="All current members with access to your studies are listed below.  To revoke access for a member, please click a " />
+	<h:graphicImage id="deleteX" url="/css/css-images/cal_off.gif" />
+	<h:outputText
+		value=" in the table below to revoke access for a specific member." />
+	<p />
+	<icecore:singleSubmit>
+		<ice:dataTable id="currentTable" value="#{memberList.list}"
+			var="member" cellpadding="0" style="width:600px;" columnWidths="90px, 90px, 235px, 185px" scrollHeight="180px" scrollable="true">
+			<ice:column style="width:90px;">
+				<f:facet name="header">
+					<h:outputText value="Details" />
+				</f:facet>
+				<ice:commandLink
+					actionListener="#{studyCurrentBacking.viewCurrentDetails}"
+					id="btnCurrentDetail">
+					<h:graphicImage url="/css/css-images/attributes.png" />
+					<f:param name="detailUserId" value="#{member.userId}" />
+				</ice:commandLink>
+			</ice:column>
+			<ice:column style="width:90px;">
+				<f:facet name="header">
+					<h:outputText value="Revoke" />
+				</f:facet>
+				<ice:commandLink actionListener="#{studyCurrentBacking.revoke}"
+					id="btnRevoke">
+					<h:graphicImage url="/css/css-images/cal_off.gif" />
+					<f:param name="revokeUserId" value="#{member.userId}" />
+				</ice:commandLink>
+			</ice:column>
+			<ice:column style="width:235px;">
+				<f:facet name="header">
+					<h:outputText value="Name" />
+				</f:facet>
+				<h:outputText value="#{member.fullName}" />
+			</ice:column>
+			<ice:column style="width:185px;">
+				<f:facet name="header">
+					<h:outputText value="Member Of" />
+				</f:facet>
+				<h:outputText value="#{member.teams}">
+					<f:converter converterId="studyListConverter" />
+				</h:outputText>
+			</ice:column>
+		</ice:dataTable>
+	</icecore:singleSubmit>
+	<p />
+
+</ui:composition>

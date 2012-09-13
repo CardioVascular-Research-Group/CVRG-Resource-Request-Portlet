@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view contentType="text/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:ice="http://www.icesoft.com/icefaces/component">
+	<h:head />
+	<h:body>
+		<link href="#{request.contextPath}/css/icefaces-theme-override.css"
+			rel="stylesheet" type="text/css" />
+		<ice:panelGroup rendered="#{userChecker.authorized}">
+			<ui:include src="piresponse.xhtml" />
+		</ice:panelGroup>
+		<ice:panelGroup rendered="#{!userChecker.authorized}">
+			<h:outputText
+				value="You have not been authorized to use this portlet.  If this is in error, please contact your PI or the Portal Administrator." />
+		</ice:panelGroup>
+	</h:body>
+</f:view>

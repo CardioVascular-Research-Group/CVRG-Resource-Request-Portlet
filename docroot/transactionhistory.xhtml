@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns:aui="http://portletfaces.org/alloyfaces/aui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:chat="http://java.sun.com/jsf/composite/chat"
+	xmlns:liferay-ui="http://portletfaces.org/liferayfaces/liferay-ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core">
+
+	<icecore:singleSubmit>
+		<ice:panelGroup>
+		<ice:dataTable 	id="historyTable" 
+						scrollable="true" 
+						scrollHeight="180px"
+						value="#{transactionList.transactionHistoryList}" 
+						var="transaction"
+						cellpadding="0" 
+						style="width:630px;border-width:0px" 
+						columnWidths="90px, 150px, 100px, 100px, 40px, 100px, 50px;"
+						sortColumn="#{transactionList.columnName}"
+                       	sortAscending="#{transactionList.descending}">
+			<ice:column style="width:90px;">
+				<f:facet name="header">
+					<h:outputText value="Details" />
+				</f:facet>
+				<ice:commandLink
+					actionListener="#{transactionHistoryBacking.viewHistoryDetails}"
+					id="btnHistoryDetail">
+					<h:graphicImage url="/css/css-images/attributes.png" />
+					<f:param name="transactionId" value="#{transaction.transactionId}" />
+				</ice:commandLink>
+			</ice:column>
+			<ice:column style="width:160px;">
+				<f:facet name="header">
+					<ice:commandSortHeader arrow="true" id="dateHeader" columnName="date">
+						<h:outputText value="Date/Time"/>
+					</ice:commandSortHeader>
+				</f:facet>
+				<h:outputText value="#{transaction.date}" >
+					<f:convertDateTime locale="en_US" type="both" />
+				</h:outputText>
+			</ice:column>
+			<ice:column style="width:100px;">
+				<f:facet name="header">
+					<ice:commandSortHeader arrow="true" id="memberNameHeader" columnName="memberName">
+						<h:outputText value="Member Name" />
+					</ice:commandSortHeader>
+				</f:facet>
+				<h:outputText value="#{transaction.memberId}">
+					<f:converter converterId="nameConverter" />
+				</h:outputText>
+			</ice:column>
+			<ice:column style="width:100px;">
+				<f:facet name="header">
+					<ice:commandSortHeader arrow="true" id="actionHeader" columnName="action">
+						<h:outputText value="Action" />
+					</ice:commandSortHeader>
+				</f:facet>
+				<h:outputText value="#{transaction.action}" />
+			</ice:column>
+			<ice:column style="width:40px;">
+				<f:facet name="header">
+					<ice:commandSortHeader arrow="true" id="studyHeader" columnName="study">
+						<h:outputText value="Study" />
+					</ice:commandSortHeader>
+				</f:facet>
+				<h:outputText value="#{transaction.studyId}">
+					<f:converter converterId="studyConverter" />
+				</h:outputText>
+			</ice:column>
+			<ice:column style="width:100px;">
+				<f:facet name="header">
+					<ice:commandSortHeader arrow="true" id="approverHeader" columnName="approver">
+						<h:outputText value="Approver" />
+					</ice:commandSortHeader>
+				</f:facet>
+				<h:outputText value="#{transaction.approverId}">
+					<f:converter converterId="nameConverter" />
+				</h:outputText>
+			</ice:column>
+			<ice:column style="width:50px;">
+				<f:facet name="header">
+					<h:outputText value="Comment" />
+				</f:facet>
+				<h:outputText style="width:300px; height:100px;"
+					value="#{transaction.comment}">
+					<f:converter converterId="truncatorConverter" />
+				</h:outputText>
+			</ice:column>
+		</ice:dataTable>
+		</ice:panelGroup>
+	</icecore:singleSubmit>
+
+</ui:composition>

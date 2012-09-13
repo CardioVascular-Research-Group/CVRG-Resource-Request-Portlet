@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="com.jhu.cvrg.portal.resourcerequest.service.ResourceRequestLocalService" class="com.jhu.cvrg.portal.resourcerequest.service.impl.ResourceRequestLocalServiceImpl" />
+	<bean id="com.jhu.cvrg.portal.resourcerequest.service.ResourceRequestLocalServiceUtil" class="com.jhu.cvrg.portal.resourcerequest.service.ResourceRequestLocalServiceUtil">
+		<property name="service" ref="com.jhu.cvrg.portal.resourcerequest.service.ResourceRequestLocalService" />
+	</bean>
+	<bean id="com.jhu.cvrg.portal.resourcerequest.service.persistence.ResourceRequestPersistence" class="com.jhu.cvrg.portal.resourcerequest.service.persistence.ResourceRequestPersistenceImpl" parent="basePersistence" />
+	<bean id="com.jhu.cvrg.portal.resourcerequest.service.TransactionLocalService" class="com.jhu.cvrg.portal.resourcerequest.service.impl.TransactionLocalServiceImpl" />
+	<bean id="com.jhu.cvrg.portal.resourcerequest.service.TransactionLocalServiceUtil" class="com.jhu.cvrg.portal.resourcerequest.service.TransactionLocalServiceUtil">
+		<property name="service" ref="com.jhu.cvrg.portal.resourcerequest.service.TransactionLocalService" />
+	</bean>
+	<bean id="com.jhu.cvrg.portal.resourcerequest.service.persistence.TransactionPersistence" class="com.jhu.cvrg.portal.resourcerequest.service.persistence.TransactionPersistenceImpl" parent="basePersistence" />
+</beans>
