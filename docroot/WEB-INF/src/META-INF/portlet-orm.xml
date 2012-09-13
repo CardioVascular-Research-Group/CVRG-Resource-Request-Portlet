@@ -7,7 +7,7 @@
 			<access>PROPERTY</access>
 		</persistence-unit-defaults>
 	</persistence-unit-metadata>
-	<mapped-superclass class="com.jhu.cvrg.portal.resourcerequest.model.impl.ResourceRequestModelImpl">
+	<mapped-superclass class="edu.jhu.cvrg.portal.resourcerequest.model.impl.ResourceRequestModelImpl">
 		<attributes>
 			<id name="requestId" />
 			<basic name="requesterId" />
@@ -25,7 +25,7 @@
 			<transient name="primaryKey" />
 		</attributes>
 	</mapped-superclass>
-	<mapped-superclass class="com.jhu.cvrg.portal.resourcerequest.model.impl.TransactionModelImpl">
+	<mapped-superclass class="edu.jhu.cvrg.portal.resourcerequest.model.impl.TransactionModelImpl">
 		<attributes>
 			<id name="transactionId" />
 			<basic name="date">
@@ -43,11 +43,11 @@
 			<transient name="primaryKey" />
 		</attributes>
 	</mapped-superclass>
-	<entity class="com.jhu.cvrg.portal.resourcerequest.model.impl.ResourceRequestImpl" name="ResourceRequest">
+	<entity class="edu.jhu.cvrg.portal.resourcerequest.model.impl.ResourceRequestImpl" name="ResourceRequest">
 		<table name="JHU_resource_request_ResourceRequest" />
 		<attributes />
 	</entity>
-	<entity class="com.jhu.cvrg.portal.resourcerequest.model.impl.TransactionImpl" name="Transaction">
+	<entity class="edu.jhu.cvrg.portal.resourcerequest.model.impl.TransactionImpl" name="Transaction">
 		<table name="JHU_resource_request_Transaction" />
 		<attributes />
 	</entity>

@@ -2,9 +2,9 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping default-lazy="false" auto-import="false">
-	<import class="com.jhu.cvrg.portal.resourcerequest.model.ResourceRequest" />
-	<import class="com.jhu.cvrg.portal.resourcerequest.model.Transaction" />
-	<class name="com.jhu.cvrg.portal.resourcerequest.model.impl.ResourceRequestImpl" table="JHU_resource_request_ResourceRequest">
+	<import class="edu.jhu.cvrg.portal.resourcerequest.model.ResourceRequest" />
+	<import class="edu.jhu.cvrg.portal.resourcerequest.model.Transaction" />
+	<class name="edu.jhu.cvrg.portal.resourcerequest.model.impl.ResourceRequestImpl" table="JHU_resource_request_ResourceRequest">
 		<cache usage="read-write" />
 		<id name="requestId" type="long">
 			<generator class="assigned" />
@@ -20,7 +20,7 @@
 		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 	</class>
-	<class name="com.jhu.cvrg.portal.resourcerequest.model.impl.TransactionImpl" table="JHU_resource_request_Transaction">
+	<class name="edu.jhu.cvrg.portal.resourcerequest.model.impl.TransactionImpl" table="JHU_resource_request_Transaction">
 		<cache usage="read-write" />
 		<id name="transactionId" type="long">
 			<generator class="assigned" />

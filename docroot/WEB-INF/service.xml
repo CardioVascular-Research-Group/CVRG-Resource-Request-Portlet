@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.0.0//EN"
 "http://www.liferay.com/dtd/liferay-service-builder_6_0_0.dtd">
-<service-builder package-path="com.jhu.cvrg.portal.resourcerequest">
+<service-builder package-path="edu.jhu.cvrg.portal.resourcerequest">
 	<author>Chris Jurado</author>
 	<namespace>JHU_resource_request</namespace>
 	<entity name="ResourceRequest" local-service="true" remote-service="false">

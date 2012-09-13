@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <model-hints>
-	<model name="com.jhu.cvrg.portal.resourcerequest.model.ResourceRequest">
+	<model name="edu.jhu.cvrg.portal.resourcerequest.model.ResourceRequest">
 		<field name="requestId" type="long" />
 		<field name="requesterId" type="long" />
 		<field name="approverId" type="long" />
@@ -16,7 +16,7 @@
 		<field name="groupId" type="long" />
 		<field name="companyId" type="long" />
 	</model>
-	<model name="com.jhu.cvrg.portal.resourcerequest.model.Transaction">
+	<model name="edu.jhu.cvrg.portal.resourcerequest.model.Transaction">
 		<field name="transactionId" type="long" />
 		<field name="date" type="Date" />
 		<field name="memberId" type="long" />

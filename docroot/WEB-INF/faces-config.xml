@@ -14,7 +14,7 @@
 	</application>
 	
 	<lifecycle>
-		<phase-listener>com.jhu.cvrg.portal.resourcerequest.listener.ResourceRequestPhaseListener</phase-listener>
+		<phase-listener>edu.jhu.cvrg.portal.resourcerequest.listener.ResourceRequestPhaseListener</phase-listener>
 	</lifecycle>
 	
 
